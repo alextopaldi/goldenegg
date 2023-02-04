@@ -1,0 +1,401 @@
+$kurale: 'Kurale',
+serif;
+$os: 'Open Sans',
+sans-serif;
+$yellow: #E8C300;
+$white: #FFFFFF;
+$black: #000000;
+$wrap: 1470px;
+$container: 1230px;
+$text: 18px;
+@mixin flex($jc, $ai) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+@mixin line {
+    content: '';
+    background-color: $yellow;
+    width: 60px;
+    height: 5px;
+    display: block;
+    border-radius: 50px;
+    margin: 20px auto;
+}
+
+@mixin img {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0px 0px 50px rgba(0, 0, 0, 0.5));
+    border-radius: 5px;
+}
+
+h2 {
+    font-family: 'Kurale';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 42px;
+    &::after {
+        @include line
+    }
+}
+
+p {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-size: 18px;
+    line-height: 175%;
+    margin-top: 25px;
+}
+
+body {
+    font-family: $os;
+    color: $black;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: $text;
+}
+
+.wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.container {
+    max-width: $container;
+    margin: 0 auto;
+    padding: 0 15px;
+    // outline: 1px red solid;
+}
+
+.circle {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    border: 20px solid $yellow;
+    border-radius: 50%;
+    top: 50%;
+    filter: drop-shadow(0px 0px 100px rgba(0, 0, 0, 0.5));
+}
+
+// home 
+.home {
+    color: $white;
+    min-height: 800px;
+    position: relative;
+    &__video {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        object-fit: cover;
+    }
+    &__container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.6) 100%)
+    }
+}
+
+.top-menu__list {
+    @include flex(center, center);
+}
+
+.top-menu__item {
+    margin: 0 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 40px 25px;
+    transition: 0.3s;
+    border-top: transparent 5px solid;
+    cursor: pointer;
+    &:hover {
+        color: $yellow;
+        border-top: $yellow 5px solid;
+    }
+}
+
+.logo {
+    margin: 0 70px;
+    cursor: pointer;
+    img {
+        position: relative;
+        top: 15px;
+    }
+}
+
+.home__container-center {
+    @include flex(space-between, flex-start);
+    margin-top: 175px;
+}
+
+.socials {
+    margin-top: 40px;
+    .social {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        width: 20px;
+        height: 20px;
+        padding: 20px;
+        border-radius: 50%;
+        display: block;
+        margin-bottom: 20px;
+        transition: 0.3s;
+        &:hover {
+            background: $yellow;
+        }
+    }
+}
+
+.home__text {
+    text-align: center;
+    h6 {
+        font-size: $text;
+    }
+    h1 {
+        font-size: 72px;
+        color: $yellow;
+        font-family: $kurale;
+        margin-top: 25px;
+        &::after {
+            @include line;
+        }
+    }
+}
+
+.home__btns {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow-border {
+    width: 60px;
+    height: 60px;
+    margin: 90px auto;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: $white;
+    border-radius: 50%;
+    transition: 0.3s;
+    .arrow {
+        color: $black;
+    }
+    &:hover {
+        background-color: $yellow;
+    }
+}
+
+.home__btn {
+    width: 200px;
+    height: 60px;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    transition: 0.3s;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-style: normal;
+    margin: 0 20px;
+    &:hover {
+        background-color: $yellow;
+    }
+}
+
+.time-work {
+    font-weight: 700;
+    font-size: 12px;
+    width: 60px;
+    margin-top: 60px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+// about
+.about {
+    padding-top: 95px;
+    padding-bottom: 105px;
+    &__text {
+        width: 50%;
+        max-width: 600px;
+        text-align: center;
+    }
+    &__img {
+        height: 100%;
+        width: 50%;
+        max-width: 500px;
+        position: relative;
+        .circle {
+            right: 0;
+            transform: translate(50%, -50%);
+        }
+        img {
+            @include img;
+            display: block
+        }
+    }
+}
+
+.about__container {
+    @include flex(space-between, center)
+}
+
+.intro {
+    font-weight: bold;
+}
+
+.team {
+    color: $white;
+    min-height: 675px;
+    position: relative;
+    &__video {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.4) 100%)
+    }
+}
+
+.team__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    @include flex(space-between, center)
+}
+
+.team__img {
+    width: 50%;
+    max-width: 600px;
+    position: relative;
+    .circle {
+        left: 0;
+        transform: translate(-50%, -50%);
+    }
+    img {
+        @include img;
+        display: block
+    }
+}
+
+.team__text {
+    width: 50%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.main-team__container {
+    padding-top: 70px;
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+    text-align: center;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.5em;
+}
+
+.team__container {
+    margin-top: 50px;
+}
+
+.booking__container {
+    padding: 100px 0 40px 0;
+    @include flex(space-between, center)
+}
+
+.booking__text {
+    width: 50%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.booking__img {
+    width: 50%;
+    max-width: 500px;
+    position: relative;
+    .circle {
+        right: 0;
+        transform: translate(40%, -50%);
+    }
+}
+
+.booking__contacts {
+    text-align: center;
+    padding-bottom: 40px;
+    font-size: 18px;
+    color: rgba(51, 51, 51, 0.5);
+}
+
+.booking__form {
+    @include flex(space-between, center);
+    input {
+        width: calc(50% - 5px);
+        margin-bottom: 10px;
+        background: #E5E5E5;
+        border-radius: 5px;
+        outline: none;
+        height: 60px;
+        font-size: 14px;
+        padding: 0 20px;
+        border: 1px solid transparent;
+        &:focus {
+            border: 1px solid $yellow;
+        }
+    }
+}
+
+.booking__select {
+    width: calc(50% - 5px);
+    margin-bottom: 10px;
+    select {
+        width: 100%;
+        border: 1px solid transparent;
+        height: 60px;
+        border-radius: 5px;
+        background: #E5E5E5;
+        padding: 0 20px;
+        font-size: 14px;
+    }
+}
