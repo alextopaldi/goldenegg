@@ -2,6 +2,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown  } from "@fortawesome/free-solid-svg-icons"
 import { faInstagram, faTwitter, faFacebook } from "@fortawesome/free-brands-svg-icons"
 import {Link} from 'react-scroll'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay} from 'swiper';
+import 'swiper/swiper-bundle.css'
 
 const video = require('../media/dish.mp4')
 const logo = require('../media/dish.png')
@@ -9,6 +12,9 @@ const about = require('../media/about.jpg')
 const videoTeam = require('../media/team.mp4')
 const chief = require('../media/chief.jpg')
 const booking = require('../media/booking.jpg')
+const spec_egg = require('../media/spec-egg.png')
+const spec2 = require('../media/spec2.png')
+const cesar = require('../media/cesar.png')
 
 export function GoldenEgg() {
     return(
@@ -116,6 +122,7 @@ export function GoldenEgg() {
                                 <select required
                                 // onChange={event => setCaloriesValues(prev => ({...prev, eating: event.target.value}))}
                                 >
+                                    
                                     <option value=''>Время</option>
                                     <option value='14:00-16:00'>14:00-16:00</option>
                                     <option value='16:00-18:00'>16:00-18:00</option>
@@ -135,6 +142,218 @@ export function GoldenEgg() {
                 <div className="container">
                     <div className='booking__contacts'>Пн - Пт: <strong>8 - 22</strong>, Сб - Вс: <strong>9 - 23</strong>, Телефон: <strong>+38098 729 13 67/+38097 458 78 79</strong></div>
                 </div>
+            </div>
+            <div className="spec">
+                <div className="main-spec__container">
+                    <div className="contrainer">
+                        <h6>СПЕЦ-ПРЕДЛОЖЕНИЯ</h6>
+                    </div>
+                </div>
+                <div className="spec__slider">
+                <Swiper
+                    modules={[Autoplay, Pagination]}
+                    autoplay = { { delay: 2500}}
+                    pagination = {{ clickable: true }}
+                    >
+                    <SwiperSlide>
+                        <div className="spec__slide">
+                            <div className="container spec__slide-container">
+                                <div className="spec__img">
+                                    <img src={spec_egg} alt=""/>
+                                    <div className="circle"></div>
+                                </div>
+                                <div className="spec__text">
+                                    <h2>GOLDEN EGG</h2>
+                                    <p className='intro'>Невероятно красивый десерт Пирожное "Golden Egg". 3D пирожное в форме яйца в гнёздышке.</p>
+                                    <p>Узнать, каково золото на вкус, приглашаем в наш ресторан. Темный бельгийский шоколад, Амаретто, мусс мята-лемонграсс, центр морковь-маракуйя  — удержаться почти невозможно. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="spec__slide">
+                            <div className="container spec__slide-container">
+                                <div className="spec__img">
+                                    <img src={spec2} alt=""/>
+                                    <div className="circle"></div>
+                                </div>
+                                <div className="spec__text">
+                                    <h2>УТИННЫЕ ИСТОРИИ</h2>
+                                    <p className='intro'>Утиные ножки здесь маринуют с травами, запекают, а потом тушат, пока мясо не приобретет нежную текстуру. </p>
+                                    <p> К утке подают красную капусту, томлёную в красном вине, а также толчёный картофель со шкварками. Фермерскую утиную грудку обжаривают и подают с соусом демиглас и вишнёвым кули, а также с нежным картофельным гратеном, запечённым со сливками, тимьяном и сыром пармезан. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                </Swiper>
+                </div>
+            </div>
+            <div className="menu">
+                <h2>НАШЕ МЕНЮ</h2>
+                <p className='intro menu__intro'>Предлагаем насладиться кухней от профессиональных поваров ресторана GOLDEN EGG!</p>
+                <div className='container tabs__container'>
+                    <ul className='tabs'>
+                        <li className='tabs__item'>Закуски</li>
+                        <li className='tabs__item'>Мясные блюда</li>
+                        <li className='tabs__item'>Салаты</li>
+                        <li className='tabs__item'>Десерты</li>
+                        <li className='tabs__item'>Вина</li>
+                        <li className='tabs__item'>Напитки</li>
+                    </ul>
+                </div>
+                <Swiper
+                    modules={[Autoplay, Pagination]}
+                    autoplay = { { delay: 3000}}
+                    pagination = {{ clickable: true }}
+                    >
+                    <SwiperSlide>
+                        <div className='container menu__slide-container'>
+                            <div className='menu__items'>
+                                <div className='menu__item'>
+                                    <div className='menu__item-img'>
+                                        <img src={cesar} alt="" />
+                                    </div>
+                                    <div className='menu__item-text'>
+                                        <h6>Фирменный цезарь</h6>
+                                        <div className='menu-line'></div>
+                                        <h6>350,00 РУБ</h6>
+                                        <p>с тигровыми креветками, копченой куриной грудкой, курицей-гриль, салатом Айсберг, перепелиными яйцами, томатами Черри и и соусом Дор-Блю</p>
+                                    </div>
+                                </div>
+                                <div className='menu__item'>
+                                    <div className='menu__item-img'>
+                                        <img src={cesar} alt="" />
+                                    </div>
+                                    <div className='menu__item-text'>
+                                        <h6>Фирменный цезарь</h6>
+                                        <div className='menu-line'></div>
+                                        <h6>350,00 РУБ</h6>
+                                        <p>с тигровыми креветками, копченой куриной грудкой, курицей-гриль, салатом Айсберг, перепелиными яйцами, томатами Черри и и соусом Дор-Блю</p>
+                                    </div>
+                                </div>
+                                <div className='menu__item'>
+                                    <div className='menu__item-img'>
+                                        <img src={cesar} alt="" />
+                                    </div>
+                                    <div className='menu__item-text'>
+                                        <h6>Фирменный цезарь</h6>
+                                        <div className='menu-line'></div>
+                                        <h6>350,00 РУБ</h6>
+                                        <p>с тигровыми креветками, копченой куриной грудкой, курицей-гриль, салатом Айсберг, перепелиными яйцами, томатами Черри и и соусом Дор-Блю</p>
+                                    </div>
+                                </div>
+                                <div className='menu__item'>
+                                    <div className='menu__item-img'>
+                                        <img src={cesar} alt="" />
+                                    </div>
+                                    <div className='menu__item-text'>
+                                        <h6>Фирменный цезарь</h6>
+                                        <h6>350,00 РУБ</h6>
+                                        <p>с тигровыми креветками, копченой куриной грудкой, курицей-гриль, салатом Айсберг, перепелиными яйцами, томатами Черри и и соусом Дор-Блю</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className='container menu__slide-container'>
+                            <div className='menu__items'>
+                                <div className='menu__item'>
+                                    <div className='menu__item-img'>
+                                        <img src={cesar} alt="" />
+                                    </div>
+                                    <div className='menu__item-text'>
+                                        <h6>Фирменный цезарь</h6>
+                                        <div className='menu-line'></div>
+                                        <h6>350,00 РУБ</h6>
+                                        <p>с тигровыми креветками, копченой куриной грудкой, курицей-гриль, салатом Айсберг, перепелиными яйцами, томатами Черри и и соусом Дор-Блю</p>
+                                    </div>
+                                </div>
+                                <div className='menu__item'>
+                                    <div className='menu__item-img'>
+                                        <img src={cesar} alt="" />
+                                    </div>
+                                    <div className='menu__item-text'>
+                                        <h6>Фирменный цезарь</h6>
+                                        <div className='menu-line'></div>
+                                        <h6>350,00 РУБ</h6>
+                                        <p>с тигровыми креветками, копченой куриной грудкой, курицей-гриль, салатом Айсберг, перепелиными яйцами, томатами Черри и и соусом Дор-Блю</p>
+                                    </div>
+                                </div>
+                                <div className='menu__item'>
+                                    <div className='menu__item-img'>
+                                        <img src={cesar} alt="" />
+                                    </div>
+                                    <div className='menu__item-text'>
+                                        <h6>Фирменный цезарь</h6>
+                                        <div className='menu-line'></div>
+                                        <h6>350,00 РУБ</h6>
+                                        <p>с тигровыми креветками, копченой куриной грудкой, курицей-гриль, салатом Айсберг, перепелиными яйцами, томатами Черри и и соусом Дор-Блю</p>
+                                    </div>
+                                </div>
+                                <div className='menu__item'>
+                                    <div className='menu__item-img'>
+                                        <img src={cesar} alt="" />
+                                    </div>
+                                    <div className='menu__item-text'>
+                                        <h6>Фирменный цезарь</h6>
+                                        <h6>350,00 РУБ</h6>
+                                        <p>с тигровыми креветками, копченой куриной грудкой, курицей-гриль, салатом Айсберг, перепелиными яйцами, томатами Черри и и соусом Дор-Блю</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className='container menu__slide-container'>
+                            <div className='menu__items'>
+                                <div className='menu__item'>
+                                    <div className='menu__item-img'>
+                                        <img src={cesar} alt="" />
+                                    </div>
+                                    <div className='menu__item-text'>
+                                        <h6>Фирменный цезарь</h6>
+                                        <div className='menu-line'></div>
+                                        <h6>350,00 РУБ</h6>
+                                        <p>с тигровыми креветками, копченой куриной грудкой, курицей-гриль, салатом Айсберг, перепелиными яйцами, томатами Черри и и соусом Дор-Блю</p>
+                                    </div>
+                                </div>
+                                <div className='menu__item'>
+                                    <div className='menu__item-img'>
+                                        <img src={cesar} alt="" />
+                                    </div>
+                                    <div className='menu__item-text'>
+                                        <h6>Фирменный цезарь</h6>
+                                        <div className='menu-line'></div>
+                                        <h6>350,00 РУБ</h6>
+                                        <p>с тигровыми креветками, копченой куриной грудкой, курицей-гриль, салатом Айсберг, перепелиными яйцами, томатами Черри и и соусом Дор-Блю</p>
+                                    </div>
+                                </div>
+                                <div className='menu__item'>
+                                    <div className='menu__item-img'>
+                                        <img src={cesar} alt="" />
+                                    </div>
+                                    <div className='menu__item-text'>
+                                        <h6>Фирменный цезарь</h6>
+                                        <div className='menu-line'></div>
+                                        <h6>350,00 РУБ</h6>
+                                        <p>с тигровыми креветками, копченой куриной грудкой, курицей-гриль, салатом Айсберг, перепелиными яйцами, томатами Черри и и соусом Дор-Блю</p>
+                                    </div>
+                                </div>
+                                <div className='menu__item'>
+                                    <div className='menu__item-img'>
+                                        <img src={cesar} alt="" />
+                                    </div>
+                                    <div className='menu__item-text'>
+                                        <h6>Фирменный цезарь</h6>
+                                        <h6>350,00 РУБ</h6>
+                                        <p>с тигровыми креветками, копченой куриной грудкой, курицей-гриль, салатом Айсберг, перепелиными яйцами, томатами Черри и и соусом Дор-Блю</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                </Swiper>
             </div>
         </div>
         </>
