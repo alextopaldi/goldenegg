@@ -1,25 +1,39 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronDown, faLocationDot, faPhone, faEnvelope  } from "@fortawesome/free-solid-svg-icons"
+import { faChevronDown, faLocationDot, faPhone, faEnvelope, faX  } from "@fortawesome/free-solid-svg-icons"
 import { faInstagram, faTwitter, faFacebook } from "@fortawesome/free-brands-svg-icons"
 import {Link} from 'react-scroll'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay} from 'swiper';
+import { Pagination, Autoplay} from 'swiper';
 import 'swiper/swiper-bundle.css'
-
-const video = require('../media/dish.mp4')
-const logo = require('../media/dish.png')
-const about = require('../media/about.jpg')
-const videoTeam = require('../media/team.mp4')
-const chief = require('../media/chief.jpg')
-const booking = require('../media/booking.jpg')
-const spec_egg = require('../media/spec-egg.png')
-const spec2 = require('../media/spec2.png')
-const cesar = require('../media/cesar.png')
-const event1 = require('../media/event1.png')
-const event2 = require('../media/event2.png')
+import { useState } from 'react';
 
 
 export function GoldenEgg() {
+
+    const video = require('../media/dish.mp4')
+    const logo = require('../media/dish.png')
+    const about = require('../media/about.jpg')
+    const videoTeam = require('../media/team.mp4')
+    const chief = require('../media/chief.jpg')
+    const booking = require('../media/booking.jpg')
+    const spec_egg = require('../media/spec-egg.png')
+    const spec2 = require('../media/spec2.png')
+    const cesar = require('../media/cesar.png')
+    const event1 = require('../media/event1.png')
+    const event2 = require('../media/event2.png')
+
+    const [navBackVision, setNavBackVision] = useState(false)
+
+    function NavBackChanger() {
+        if(window.scrollY >= 100) {
+            setNavBackVision(true)
+        }
+        else {
+            setNavBackVision(false)
+        }
+    }
+
+    window.addEventListener('scroll', NavBackChanger)
 
     function BookingSubmit(event: React.FormEvent) {
         event.preventDefault()
@@ -34,16 +48,24 @@ export function GoldenEgg() {
     return(
         <>
         <div className="wrapper">
-            <div className="home">
+        <div className="burger">
+            <div className='burger-lines'>
+                <div className="burger-line"></div>
+            </div>
+        </div>
+        <div className='burger-close'>
+            <FontAwesomeIcon className='burger-close__icon' icon={faX} />
+        </div>
+            <div className="home" id='home'>
                 <video className="home__video" src={video} autoPlay loop muted></video>
                 <div className="home__container">
                     <div className="container">
-                        <nav className="top-menu">
+                        <nav className={navBackVision? 'top-menu active' : 'top-menu'}>
                             <div className='top-menu__list'>
                                 <Link className='top-menu__item' to='about' smooth={true} duration={1000}>О ресторане</Link>
                                 <Link className='top-menu__item' to='team' smooth={true} duration={1000}>Команда</Link>
                                 <Link className='top-menu__item' to='booking' smooth={true} duration={1000}>Заказать</Link>
-                                <Link className='logo' to='about'><img src={logo} alt="" /></Link>
+                                <Link className='logo' to='home' smooth={true} duration={1000}><img src={logo} alt="" /></Link>
                                 <Link className='top-menu__item' to='menu' smooth={true} duration={1000}>Меню</Link>
                                 <Link className='top-menu__item' to='events' smooth={true} duration={1000}>Мероприятия</Link>
                                 <Link className='top-menu__item' to='contacts' smooth={true} duration={1000}>Контакты</Link>
@@ -66,13 +88,13 @@ export function GoldenEgg() {
                             </div>
                         </div>
                             <div className='socials'>
-                                <Link to=''>
+                                <Link to='home' smooth={true} duration={1000}>
                                     <FontAwesomeIcon className='social' icon={faFacebook} />
                                 </Link>
-                                <Link to=''>
+                                <Link to='home' smooth={true} duration={1000}>
                                     <FontAwesomeIcon className='social' icon={faTwitter} />
                                 </Link>
-                                <Link to=''>
+                                <Link to='home' smooth={true} duration={1000}>
                                     <FontAwesomeIcon className='social' icon={faInstagram} />
                                 </Link>
                             </div>
@@ -417,7 +439,7 @@ export function GoldenEgg() {
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8980.73224949833!2d37.616016750851635!3d55.75532208886354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a5c6ae39171%3A0x95bf7ced8fea5cc1!2z0JrQuNGC0LDQuS3Qs9C-0YDQvtC0LCDQnNC-0YHQutCy0LA!5e0!3m2!1sru!2sru!4v1675850812458!5m2!1sru!2sru"></iframe>
             </div>
             <footer>
-                © Copyright <a>LectorWeb</a>  2021
+                © Copyright <a>LectorWeb</a>  2023
             </footer>
         </div>
         </>
