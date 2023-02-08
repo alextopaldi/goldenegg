@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronDown  } from "@fortawesome/free-solid-svg-icons"
+import { faChevronDown, faLocationDot, faPhone, faEnvelope  } from "@fortawesome/free-solid-svg-icons"
 import { faInstagram, faTwitter, faFacebook } from "@fortawesome/free-brands-svg-icons"
 import {Link} from 'react-scroll'
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -15,8 +15,22 @@ const booking = require('../media/booking.jpg')
 const spec_egg = require('../media/spec-egg.png')
 const spec2 = require('../media/spec2.png')
 const cesar = require('../media/cesar.png')
+const event1 = require('../media/event1.png')
+const event2 = require('../media/event2.png')
+
 
 export function GoldenEgg() {
+
+    function BookingSubmit(event: React.FormEvent) {
+        event.preventDefault()
+
+    }
+
+    function ContactsSubmit(event: React.FormEvent) {
+        event.preventDefault()
+
+    }
+
     return(
         <>
         <div className="wrapper">
@@ -26,13 +40,13 @@ export function GoldenEgg() {
                     <div className="container">
                         <nav className="top-menu">
                             <div className='top-menu__list'>
-                                <Link className='top-menu__item' to=''>О ресторане</Link>
-                                <Link className='top-menu__item' to=''>Команда</Link>
-                                <Link className='top-menu__item' to=''>Заказать</Link>
-                                <Link className='logo' to=''><img src={logo} alt="" /></Link>
-                                <Link className='top-menu__item' to=''>Меню</Link>
-                                <Link className='top-menu__item' to=''>Мероприятия</Link>
-                                <Link className='top-menu__item' to=''>Контакты</Link>
+                                <Link className='top-menu__item' to='about' smooth={true} duration={1000}>О ресторане</Link>
+                                <Link className='top-menu__item' to='team' smooth={true} duration={1000}>Команда</Link>
+                                <Link className='top-menu__item' to='booking' smooth={true} duration={1000}>Заказать</Link>
+                                <Link className='logo' to='about'><img src={logo} alt="" /></Link>
+                                <Link className='top-menu__item' to='menu' smooth={true} duration={1000}>Меню</Link>
+                                <Link className='top-menu__item' to='events' smooth={true} duration={1000}>Мероприятия</Link>
+                                <Link className='top-menu__item' to='contacts' smooth={true} duration={1000}>Контакты</Link>
                             </div>
                         </nav>
                     </div>
@@ -42,13 +56,13 @@ export function GoldenEgg() {
                             <h6>РЕСТОРАН</h6>
                             <h1>GOLDEN EGG</h1>
                             <div className="home__btns">
-                                <Link className='home__btn' to=''>Заказать столик</Link>
-                                <Link className='home__btn' to=''>О ресторане</Link>
+                                <Link className='home__btn' to='booking' smooth={true} duration={1000}>Заказать столик</Link>
+                                <Link className='home__btn' to='about' smooth={true} duration={1000}>О ресторане</Link>
                             </div>
                             <div className='arrow-border'>
-                                <div className='home__arrow'>
+                                <Link className='home__arrow' to='about' smooth={true} duration={1000}>
                                     <FontAwesomeIcon className='arrow' icon={faChevronDown} />
-                                </div>
+                                </Link>
                             </div>
                         </div>
                             <div className='socials'>
@@ -103,7 +117,7 @@ export function GoldenEgg() {
                 <div className="container booking__container">
                     <div className='booking__text'>
                         <h2>ЗАКАЗАТЬ СТОЛИК</h2>
-                        <form className='booking__form' action="">
+                        <form onSubmit={BookingSubmit} className='booking__form' action="">
                             <input type="text" required placeholder='Имя' />
                             <input type="text" required placeholder='Email'/>
                             <input type="text" required placeholder='Телефон'/>
@@ -188,7 +202,7 @@ export function GoldenEgg() {
                 </Swiper>
                 </div>
             </div>
-            <div className="menu">
+            <div className="menu" id='menu'>
                 <h2>НАШЕ МЕНЮ</h2>
                 <p className='intro menu__intro'>Предлагаем насладиться кухней от профессиональных поваров ресторана GOLDEN EGG!</p>
                 <div className='container tabs__container'>
@@ -205,6 +219,7 @@ export function GoldenEgg() {
                     modules={[Autoplay, Pagination]}
                     autoplay = { { delay: 3000}}
                     pagination = {{ clickable: true }}
+                    
                     >
                     <SwiperSlide>
                         <div className='container menu__slide-container'>
@@ -355,6 +370,55 @@ export function GoldenEgg() {
                     </SwiperSlide>
                 </Swiper>
             </div>
+            <div className='events' id='events'>
+                <h6>ЧАСТНЫЕ МЕРОПРИЯТИЯ</h6>
+                <div className="container events__container">
+                    <div className="left-event">
+                        <img src={event1} alt="" />
+                        <div className="circle"></div>
+                        <div className="event__title">свадебный банкет</div>
+                    </div>
+                    <div className="right-event">
+                        <img src={event2} alt=""/>
+                        <div className="circle"></div>
+                        <div className="event__title">корпоративные вечеринки</div>
+                    </div>
+                </div>
+                <div className='container events__contacts'>По вопросам частных мероприятий звоните: +38098 729 13 67/+38097 458 78 79  или используйте контактную форму.</div>
+            </div>
+            <div className="contacts" id='contacts'>
+                <h2>КОНТАКТЫ</h2>
+                <p className="intro">Вы можете оставить нам сообщение через форму ниже, или любым другим, удобным вам способом</p>
+                <form onSubmit={ContactsSubmit} className='container contacts__form' action="">
+                    <input placeholder='Имя' type="text" name="" id="" />
+                    <input placeholder='Email' type="text" name="" id="" />
+                    <input placeholder='Телефон' type="text" name="" id="" />
+                    <textarea placeholder='Сообщение'></textarea>
+                    <div className="contacts__data-submit">
+                        <div className="contacts__data-items">
+                            <div className="contacts__data-item">
+                                <FontAwesomeIcon className='contacts-icon' icon={faLocationDot} />
+                                <p>пр-т. Победы, 105, Москва</p>
+                            </div>
+                            <div className="contacts__data-item">
+                                <FontAwesomeIcon className='contacts-icon' icon={faPhone} />
+                                <p>+38098 729 13 67</p>
+                            </div>
+                            <div className="contacts__data-item">
+                                <FontAwesomeIcon className='contacts-icon' icon={faEnvelope} />
+                                <p>info@goldenegg.com</p>
+                            </div>
+                        </div>
+                        <button>Отправить сообщение</button>
+                    </div>
+                </form>
+            </div>
+            <div className="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8980.73224949833!2d37.616016750851635!3d55.75532208886354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a5c6ae39171%3A0x95bf7ced8fea5cc1!2z0JrQuNGC0LDQuS3Qs9C-0YDQvtC0LCDQnNC-0YHQutCy0LA!5e0!3m2!1sru!2sru!4v1675850812458!5m2!1sru!2sru"></iframe>
+            </div>
+            <footer>
+                © Copyright <a>LectorWeb</a>  2021
+            </footer>
         </div>
         </>
     )

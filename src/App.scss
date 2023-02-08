@@ -59,6 +59,13 @@ p {
     margin-top: 25px;
 }
 
+input,
+button,
+select,
+textarea {
+    cursor: pointer;
+}
+
 body {
     font-family: $os;
     color: $black;
@@ -121,6 +128,10 @@ body {
         height: 100%;
         background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.6) 100%)
     }
+}
+
+.home__btn {
+    cursor: pointer
 }
 
 .top-menu__list {
@@ -223,6 +234,7 @@ body {
     &:hover {
         background-color: $yellow;
     }
+    cursor: pointer;
 }
 
 .home__btn {
@@ -581,5 +593,199 @@ body {
     img {
         width: 100%;
         border: 4px solid $yellow;
+    }
+}
+
+.events {
+    h6 {
+        text-align: center;
+        line-height: 14px;
+        letter-spacing: 0.5em;
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    background: url('./media/bg-events.jpg') center/cover no-repeat;
+    color: $white;
+    padding: 75px 0;
+}
+
+.events__container {
+    @include flex(space-between,
+    center);
+    margin: 75px auto;
+}
+
+.left-event {
+    position: relative;
+    .circle {
+        left: 0;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.event__title {
+    position: absolute;
+    background-color: $black;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-family: $kurale;
+    border-radius: 0px 5px 5px 0px;
+    padding: 30px 20px;
+    writing-mode: vertical-rl;
+    top: 0;
+    right: 0;
+    height: 100%;
+}
+
+.right-event {
+    position: relative;
+    .circle {
+        right: 0;
+        transform: translate(50%, -50%);
+    }
+    .event__title {
+        left: 0;
+        right: auto;
+        transform: scale(-1);
+    }
+}
+
+.right-event,
+.left-event {
+    img {
+        @include img;
+        object-fit: cover
+    }
+}
+
+.events__contacts {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+
+.contacts {
+    padding: 50px 0 75px;
+    h2 {
+        text-align: center;
+    }
+    p {
+        text-align: center;
+        max-width: 520px;
+        margin: 0 auto;
+        font-size: 18px;
+        line-height: 156%;
+        font-weight: bold;
+    }
+}
+
+.contacts__form {
+    @include flex(space-between,
+    center);
+    margin-top: 30px;
+    input {
+        width: calc(33% - 5px);
+        margin-top: 10px;
+        background: #E5E5E5;
+        border-radius: 5px;
+        outline: none;
+        height: 60px;
+        font-size: 14px;
+        padding: 0 20px;
+        border: 1px solid transparent;
+        &:focus {
+            border: 1px solid $yellow;
+        }
+        &::placeholder {
+            color: $gray;
+        }
+    }
+    textarea {
+        width: 100%;
+        margin-top: 10px;
+        background: #E5E5E5;
+        border-radius: 5px;
+        outline: none;
+        height: 60px;
+        font-size: 14px;
+        padding: 16px 20px;
+        border: 1px solid transparent;
+        height: 120px;
+        &:focus {
+            border: 1px solid $yellow;
+        }
+        &::placeholder {
+            color: $gray;
+        }
+        resize: none
+    }
+}
+
+.contacts__data-submit {
+    @include flex(space-between,
+    center);
+    width: 100%;
+    button {
+        width: 50%;
+        height: 60px;
+        font-size: 12px;
+        color: $white;
+        background-color: $yellow;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        transition: 0.3s;
+        font-weight: bold;
+        margin-top: 10px;
+        &:hover {
+            background-color: #f7d948;
+        }
+        font-weight: bold
+    }
+}
+
+.contacts__data-items {
+    @include flex(flex-start,
+    center);
+    p {
+        font-size: 12px;
+        font-weight: bold;
+        color: rgba(51, 51, 51, 0.5);
+    }
+    flex-wrap: nowrap;
+    width: 50%;
+}
+
+.contacts__data-item {
+    @include flex(center,
+    center);
+    .contacts-icon {
+        width: 14px;
+        color: $yellow;
+    }
+    margin-right: 15px;
+}
+
+.map {
+    width: 100%;
+    height: 475px;
+    iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+}
+
+footer {
+    width: 100%;
+    background-color: $black;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    padding: 15px;
+    font-size: 12px;
+    a {
+        font-size: 12px;
+        font-weight: bold;
     }
 }
