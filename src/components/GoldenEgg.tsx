@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronDown, faLocationDot, faPhone, faEnvelope, faX  } from "@fortawesome/free-solid-svg-icons"
+import { faChevronDown, faLocationDot, faPhone, faEnvelope  } from "@fortawesome/free-solid-svg-icons"
 import { faInstagram, faTwitter, faFacebook } from "@fortawesome/free-brands-svg-icons"
 import {Link} from 'react-scroll'
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -23,6 +23,7 @@ export function GoldenEgg() {
     const event2 = require('../media/event2.png')
 
     const [navBackVision, setNavBackVision] = useState(false)
+    const [navMenuVision, setNavMenuVision] = useState(false)
 
     function NavBackChanger() {
         if(window.scrollY >= 100) {
@@ -45,22 +46,35 @@ export function GoldenEgg() {
 
     }
 
+    function NavState() {
+        
+        if(navMenuVision && navBackVision) {
+            return 'top-menu show'
+        }
+        else if (navMenuVision && !navBackVision) {
+            return 'top-menu show'
+        }
+        else if(!navMenuVision && navBackVision) {
+            return 'top-menu active hide'
+        }
+        else if(!navMenuVision && !navBackVision) {
+            return 'top-menu hide'
+        }
+    }
+
     return(
         <>
         <div className="wrapper">
-        <div className="burger">
+        <div className="burger" onClick={() => setNavMenuVision(prev => !prev)}>
             <div className='burger-lines'>
                 <div className="burger-line"></div>
             </div>
-        </div>
-        <div className='burger-close'>
-            <FontAwesomeIcon className='burger-close__icon' icon={faX} />
         </div>
             <div className="home" id='home'>
                 <video className="home__video" src={video} autoPlay loop muted></video>
                 <div className="home__container">
                     <div className="container">
-                        <nav className={navBackVision? 'top-menu active' : 'top-menu'}>
+                        <nav className={NavState()}>
                             <div className='top-menu__list'>
                                 <Link className='top-menu__item' to='about' smooth={true} duration={1000}>О ресторане</Link>
                                 <Link className='top-menu__item' to='team' smooth={true} duration={1000}>Команда</Link>

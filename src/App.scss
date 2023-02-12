@@ -92,7 +92,7 @@
         position: absolute;
         width: 30px;
         height: 3px;
-        background-color: $white;
+        background-color: $yellow;
         top: 50%;
         transform: translate(0, -50%);
         &::before {
@@ -100,7 +100,7 @@
             position: absolute;
             width: 30px;
             height: 3px;
-            background-color: $white;
+            background-color: $yellow;
             bottom: 10px;
         }
         &::after {
@@ -108,7 +108,7 @@
             position: absolute;
             width: 30px;
             height: 3px;
-            background-color: $white;
+            background-color: $yellow;
             top: 10px;
         }
     }
@@ -950,7 +950,6 @@
                 margin: 0 auto;
             }
         }
-        .team__img {}
         .left-event,
         .right-event {
             width: 40%;
@@ -969,7 +968,6 @@
         }
         .top-menu {
             display: flex;
-            display: none;
             align-items: center;
             justify-content: center;
             position: fixed;
@@ -982,6 +980,14 @@
             z-index: 1000;
             background-color: $black;
             transform: none;
+            transition: transform .3s cubic-bezier(.42, 0, .58, 1);
+        }
+        .top-menu.hide {
+            transform: translate3d(100vw, 0, 0);
+            overflow: hidden;
+        }
+        .top-menu.show {
+            transform: translate3d(0vw, 0, 0);
         }
         .top-menu.active {
             opacity: 1;
@@ -1001,4 +1007,236 @@
         .home__container-center {
             margin-top: 200px;
         }
+        .about__container {
+            justify-content: center;
+            width: 100%;
+        }
+        .about__text {
+            width: 80%;
+        }
+        .about__img {
+            display: none;
+        }
+        .booking__contacts {
+            font-size: 12px;
+            strong {
+                font-size: 12px;
+            }
+        }
+        .team {
+            min-height: 450px;
+        }
+        .menu__item-text {
+            p {
+                font-size: 10px;
+                margin: 0;
+            }
+            h6 {
+                font-size: 14px;
+            }
+        }
+        .menu__item-img {
+            img {
+                width: 80%;
+                height: 80%;
+            }
+        }
+        .menu__item {
+            margin-bottom: 25px;
+        }
+        .menu__items {
+            flex-direction: column;
+        }
+        .contacts__data-submit {
+            flex-direction: column;
+        }
+        .contacts__data-items {
+            width: 100%;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .home__btns {
+            margin-top: 60px;
+        }
+        .home__btn {
+            width: 150px;
+            font-size: 10px;
+            padding: 10px;
+            height: 40px;
+        }
+        .socials .social {
+            width: 12px;
+            height: 12px;
+        }
+        .arrow-border {
+            margin-top: 200px;
+        }
+        .main-team__container,
+        .events,
+        .menu,
+        .booking__container,
+        .about {
+            padding-top: 40px;
+        }
+        .main-spec__container {
+            top: 40px;
+        }
+        .team__container {
+            margin-top: 25px;
+        }
+        .spec {
+            padding-top: 45px;
+        }
+        .events__container {
+            margin: 35px auto;
+        }
+        .contacts {
+            padding: 25px 0 35px;
+        }
+        .left-event,
+        .right-event {
+            width: 40%;
+            .event__title {
+                font-size: 14px;
+            }
+        }
+        .about,
+        .spec,
+        .menu,
+        .events {
+            padding-bottom: 20px;
+        }
+        .contacts__form {
+            margin-top: 10px;
+        }
+    }
+    
+    @media (max-width: 800px) {
+        .menu__items {
+            justify-content: center;
+        }
+        .menu__item {
+            width: 80%;
+            justify-content: center;
+        }
+        .menu__item-img {
+            width: 30%;
+        }
+        .left-event,
+        .right-event {
+            width: 40%;
+            .event__title {
+                font-size: 10px;
+            }
+        }
+        .team,
+        .spec,
+        .events {
+            h6 {
+                font-size: 12px;
+            }
+            h2 {
+                font-size: 16px;
+            }
+        }
+        h2 {
+            font-size: 14px;
+        }
+        .events__contacts {
+            font-size: 8px;
+        }
+        .team__img {
+            display: none;
+        }
+        .team__text {
+            width: 80%;
+        }
+        .team__container {
+            justify-content: center;
+        }
+        .booking__img {
+            display: none;
+        }
+        .booking__text {
+            width: 80%;
+        }
+        .booking__container {
+            justify-content: center;
+        }
+        .home {
+            min-height: 600px;
+        }
+        .arrow-border {
+            margin-top: 100px;
+        }
+        .home__container-center {
+            margin-top: 100px;
+        }
+    }
+    
+    @media (max-width: 600px) {
+        .home {
+            h1 {
+                font-size: 38px;
+            }
+            h6 {
+                font-size: 12px;
+            }
+        }
+        .time-work {
+            font-size: 8px;
+            width: 20px;
+        }
+        .socials {
+            .social {
+                width: 10px;
+                height: 10px;
+                padding: 10px;
+            }
+        }
+        .home__btns {
+            margin-top: 40px;
+            flex-direction: column;
+        }
+        .home__btn {
+            width: 150px;
+            font-size: 10px;
+            padding: 10px;
+            height: 40px;
+            margin-top: 10px;
+        }
+        .spec__slide-container {
+            padding-bottom: 30px;
+        }
+        .spec__text {
+            p {
+                font-size: 8px;
+            }
+        }
+        .contacts__data-item {
+            p {
+                font-size: 8px;
+            }
+        }
+        .contacts-icon {
+            width: 10px;
+            height: 10px;
+        }
+        .top-menu__item {
+            font-size: 12px;
+        }
+    }
+    
+    .v1 {
+        height: 200px;
+        width: 200px;
+        border: 1px solid red;
+        padding: 10px;
+    }
+    
+    .v2 {
+        height: 50px;
+        width: 100%;
+        border: 1px solid blue;
+        padding: 100px;
     }
