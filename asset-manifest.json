@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/goldenegg/static/css/main.08ef3971.css",
+    "main.js": "/goldenegg/static/js/main.751acd3a.js",
+    "static/media/dish.mp4": "/goldenegg/static/media/dish.9872b4888b356c930d0b.mp4",
+    "static/media/team.mp4": "/goldenegg/static/media/team.fea7c9e11b950e615e02.mp4",
+    "static/media/bg-events.jpg": "/goldenegg/static/media/bg-events.0b201ca832ab29cb99ee.jpg",
+    "static/media/spec-egg.png": "/goldenegg/static/media/spec-egg.7b516b541357fdfe8cf3.png",
+    "static/media/event2.png": "/goldenegg/static/media/event2.e6eeddd135d4e5d02baf.png",
+    "static/media/spec2.png": "/goldenegg/static/media/spec2.8e50660e6c2f5fa1ac87.png",
+    "static/media/spec-bg.jpg": "/goldenegg/static/media/spec-bg.d85bf417fc70a20b8c14.jpg",
+    "static/media/event1.png": "/goldenegg/static/media/event1.b6fc8f018cfda02f2702.png",
+    "static/media/about.jpg": "/goldenegg/static/media/about.cec5d25e839f053c97d2.jpg",
+    "static/media/chief.jpg": "/goldenegg/static/media/chief.51644c48c981fc9a4401.jpg",
+    "static/media/booking.jpg": "/goldenegg/static/media/booking.aa357eb34f30c7ff2982.jpg",
+    "static/media/cesar.png": "/goldenegg/static/media/cesar.384cb12d9f3ce0fd1520.png",
+    "index.html": "/goldenegg/index.html",
+    "main.08ef3971.css.map": "/goldenegg/static/css/main.08ef3971.css.map",
+    "main.751acd3a.js.map": "/goldenegg/static/js/main.751acd3a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.08ef3971.css",
+    "static/js/main.751acd3a.js"
+  ]
+}
